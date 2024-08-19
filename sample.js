@@ -1,7 +1,7 @@
-var hostUrl = 'https://services.syncfusion.com/js/production/api/Orders';
+var hostUrl = 'https://services.syncfusion.com/js/production/api/UrlDataSource';
 var data1 = new ej.data.DataManager({
   url: hostUrl,
-  adaptor: new ej.data.WebApiAdaptor(),
+  adaptor: new ej.data.UrlAdaptor(),
 });
 
 var grid = new ej.grids.Grid(
@@ -25,14 +25,14 @@ var grid = new ej.grids.Grid(
           },
           editSettings: { allowAdding: true, allowEditing: true, allowDeleting: true, mode: 'Dialog' },
           toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel', 'Search', 'ColumnChooser', 'ExcelExport', 'PdfExport'],
-          columns: [
-              {
-                  field: 'OrderID', headerText: 'Order ID', width: 180, isPrimaryKey: true,
-                  validationRules: { required: true, number: true }
-              },
-              { field: 'Freight', width: 180, format: 'C2', editType: 'numericedit', validationRules: { required: true, number: true } },
-              { field: 'CustomerID', headerText: 'Name', width: 180, validationRules: { required: true } },
-              { field: 'ShipCity', headerText: 'Ship City', width: 180, validationRules: { required: true } }
+            columns: [
+                {
+                    field: 'EmployeeID', headerText: 'Order ID', width: 180, isPrimaryKey: true,
+                    validationRules: { required: true, number: true }
+                },
+                { field: 'Employees', width: 180 },
+                { field: 'Designation', headerText: 'Designation', width: 180, validationRules: { required: true } },
+                { field: 'CurrentSalary', headerText: 'Current Salary', width: 180, validationRules: { required: true }, format: 'C2' }
           ],
           aggregates: [{
               columns: [{
